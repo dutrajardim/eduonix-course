@@ -21,4 +21,4 @@ spec:
       - name: jupyter-volume
         hostPath:
           type: Directory
-          path: /home/rafael/Treinamentos/edegree/python
+          path: /home/rafael/Treinamentos/edegree/eduonix-course
