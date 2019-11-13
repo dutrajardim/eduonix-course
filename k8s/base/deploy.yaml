@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: conda
+  name: conda
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: conda
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: conda
+    spec:
+      containers:
+      - image: jupyter/scipy-notebook:814ef10d64fb
+        name: juptyer
+        resources: {}
+status: {}

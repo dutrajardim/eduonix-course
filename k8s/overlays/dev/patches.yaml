@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conda
+spec:
+  template:
+    spec:
+      containers:
+      - image: jupyter/scipy-notebook:814ef10d64fb
+        name: juptyer
+        ports:
+        - containerPort: 8888
+          name: "http-server"
+        args:
+        - start-notebook.sh
+        - --NotebookApp.password='sha1:6969cd15a81d:fe8ba297295f64cfbb68c21ec58063972543a241' # rafael
+        volumeMounts:
+        - mountPath: "/home/jovyan"
+          name: jupyter-volume
+      volumes:
+      - name: jupyter-volume
+        hostPath:
+          type: Directory
+          path: /home/rafael/Treinamentos/edegree/python
